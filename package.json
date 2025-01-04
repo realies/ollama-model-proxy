@@ -1,0 +1,16 @@
+{
+  "name": "ollama-model-proxy",
+  "version": "0.0.1",
+  "description": "A proxy server that limits available Ollama models to a predefined list",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "keywords": ["ollama", "proxy", "model-filter"],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}

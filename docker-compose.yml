@@ -1,0 +1,10 @@
+services:
+  ollama-model-proxy:
+    build: .
+    container_name: ollama-model-proxy
+    ports:
+      - "3000:3000"
+    environment:
+      - MODELS=llama3.2:latest,mixtral:latest
+      - OLLAMA_HOST=http://ollama:11434
+    restart: unless-stopped
