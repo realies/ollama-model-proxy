@@ -83,8 +83,20 @@ app.get('/api/tags', async (req, res) => {
   }
 });
 
-app.listen(port, () => {
+const server = app.listen(port, () => {
   console.log(`Ollama Model Proxy listening on port ${port}`);
   console.log(`Proxying requests to ${targetUrl}`);
   console.log(`Allowed models: ${allowedModels.join(', ')}`);
 });
+
+// Graceful shutdown
+const shutdown = () => {
+  console.log('Shutting down gracefully...');
+  server.close(() => {
+    console.log('Server closed');
+    process.exit(0);
+  });
+};
+
+process.on('SIGTERM', shutdown);
+process.on('SIGINT', shutdown);

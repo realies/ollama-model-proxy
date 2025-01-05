@@ -1,9 +1,9 @@
 # Ollama Model Proxy
 
-![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/realies/ollama-model-proxy/build.yml)
-![Docker Build](https://img.shields.io/docker/automated/realies/ollama-model-proxy)
-![Docker Pulls](https://img.shields.io/docker/pulls/realies/ollama-model-proxy)
-![Docker Image Size](https://img.shields.io/docker/image-size/realies/ollama-model-proxy)
+[![GitHub Last Commit](https://img.shields.io/github/last-commit/realies/ollama-model-proxy?style=flat-square&logo=git&label=last%20commit)](https://github.com/realies/ollama-model-proxy/commits/main)
+[![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/realies/ollama-model-proxy/build.yml?style=flat-square&logo=github&label=build)](https://github.com/realies/ollama-model-proxy/actions)
+[![Docker Pulls](https://img.shields.io/docker/pulls/realies/ollama-model-proxy?style=flat-square&logo=docker&label=pulls)](https://hub.docker.com/r/realies/ollama-model-proxy)
+[![Docker Image Size](https://img.shields.io/docker/image-size/realies/ollama-model-proxy?style=flat-square&logo=docker&label=size)](https://hub.docker.com/r/realies/ollama-model-proxy)
 
 A proxy server that limits available Ollama models to a predefined list.
 
@@ -46,7 +46,7 @@ docker run -d \
 
 ### Environment Variables
 
-- `MODELS`: Comma-separated list of allowed model names with tags (required)
+- `MODELS`: Comma-separated list of allowed model names with tags (required). Example: `llama3.2:latest` or `llama3.2:latest,mixtral:latest`
 - `PORT`: Server port (default: 3000)
 - `OLLAMA_HOST`: Ollama server URL (default: http://localhost:11434)
 
@@ -68,7 +68,7 @@ curl -X POST http://localhost:3000/api/generate \
 
 - The Docker image is based on Alpine Linux for minimal size
 - The container runs as non-root user for security
-- Multi-platform support: amd64, arm/v6, arm/v7, arm64/v8, s390x
+- Multi-platform support: amd64, arm64
 
 ## License
 
